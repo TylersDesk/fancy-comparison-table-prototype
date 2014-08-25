@@ -1,0 +1,75 @@
+$zblog-grey: #777777;
+$zblack: #333333;
+$zblue: #005197;
+$zgreen: #7ac143;
+$zghighlight: #c4e9aa;
+
+@mixin animate-menu($time) {
+	-webkit-transition: all $time;
+	-moz-transition: all $time;
+	-o-transition: all $time;
+	-ms-transition: all $time;
+	transition: all $time;
+}
+
+
+//Fonts
+@font-face {
+	font-family: 'Museo300';
+	src: url('../stylesheets/fonts/museo/museo-300.eot');
+	src: url('../stylesheets/fonts/museo/museo-300.eot?#iefix') format('embedded-opentype'),
+		 url('../stylesheets/fonts/museo/museo-300.woff') format('woff'),
+		 url('../stylesheets/fonts/museo/museo-300.ttf') format('truetype'),
+		 url('../stylesheets/fonts/museo/museo-300.svg#Museo300') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Museo500';
+	src: url('../stylesheets/fonts/museo/museo-500.eot');
+	src: url('../stylesheets/fonts/museo/museo-500.eot?#iefix') format('embedded-opentype'),
+		 url('../stylesheets/fonts/museo/museo-500.woff') format('woff'),
+		 url('../stylesheets/fonts/museo/museo-500.ttf') format('truetype'),
+		 url('../stylesheets/fonts/museo/museo-500.svg#Museo500') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Museo700';
+	src: url('../stylesheets/fonts/museo/museo-700.eot');
+	src: url('../stylesheets/fonts/museo/museo-700.eot?#iefix') format('embedded-opentype'),
+		 url('../stylesheets/fonts/museo/museo-700.woff') format('woff'),
+		 url('../stylesheets/fonts/museo/museo-700.ttf') format('truetype'),
+		 url('../stylesheets/fonts/museo/museo-700.svg#Museo700') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'MuseoSans500';
+    src: url('../stylesheets/fonts/museo-sans/museo-sans-500.eot');
+    src: url('../stylesheets/fonts/museo-sans/museo-sans-500.eot?#iefix') format('embedded-opentype'),
+         url('../stylesheets/fonts/museo-sans/museo-sans-500.woff') format('woff'),
+         url('../stylesheets/fonts/museo-sans/museo-sans-500.ttf') format('truetype'),
+         url('../stylesheets/fonts/museo-sans/museo-sans-500.svg#MuseoSans500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MuseoSans500i';
+    src: url('../stylesheets/fonts/museo-sans/museo-sans-500-italic.eot');
+    src: url('../stylesheets/fonts/museo-sans/museo-sans-500-italic.eot?#iefix') format('embedded-opentype'),
+         url('../stylesheets/fonts/museo-sans/museo-sans-500-italic.woff') format('woff'),
+         url('../stylesheets/fonts/museo-sans/museo-sans-500-italic.ttf') format('truetype'),
+         url('../stylesheets/fonts/museo-sans/museo-sans-500-italic.svg#MuseoSans500i') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// customize bootstrap variables here:
+@import "variables";
+@import "bootstrap";
+@import "proto";

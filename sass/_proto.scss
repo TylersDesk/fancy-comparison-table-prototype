@@ -1,0 +1,493 @@
+//Mixins & Variables
+.zsearch_input {
+
+		}
+
+@mixin zmenu($color, $image) {
+	background: url(unquote($image)) no-repeat 10px center;
+	border-radius: 15px;
+	padding-left: 37px;
+	padding: 3px 0 3px 37px;
+	border:1px solid $color;
+	color: $color;
+}
+
+@mixin li-image($imagepath) {
+	background:url($imagepath) no-repeat 20px center;
+}
+
+
+
+.header {
+	background-color:$zblue;
+	border-bottom: 3px solid #FFD24F;
+
+	.logo {
+		height: 60px;
+		img {
+			width: 200px;
+			padding-top: 16px;
+		}
+	}
+
+	.nav-ham {
+		padding:6px;
+
+		&:hover {
+			cursor:pointer;
+		}
+	}
+}
+
+.zcontainer {
+	position: relative;
+	overflow:hidden;
+
+	.zcontent {
+		position: relative;
+	    transition: .3s ease all;
+	    -webkit-transition: .3s ease all;
+
+
+		&.view {
+		    -webkit-transform: translateX(250px);
+		    transform: translateX(250px);
+		}
+	
+
+		.znav {
+			
+			position: absolute;
+			width:250px;
+			background:#fff;
+			right: 0px;
+			left: -250px;
+			color:$zblog-grey;
+			z-index:101;
+			font-family:'Museo500';
+			
+			.znav-container {
+				position: relative;
+				overflow:hidden;
+
+				.znav-content {
+					position: relative;
+				    transition: .3s ease all;
+				    -webkit-transition: .3s ease all;
+
+				    &.view {
+	    			    -webkit-transform: translateX(-250px);
+					    transform: translateX(-250px);
+				    }
+					
+
+					.znav-level2 {
+						position: absolute;
+						left:250px;
+						width:250px;
+
+						.znav-content2 {
+							position: relative;
+						    transition: .3s ease all;
+						    -webkit-transition: .3s ease all;
+
+						    &.view {
+			    			    -webkit-transform: translateX(-250px);
+							    transform: translateX(-250px);
+						    }
+
+						    .znav-level3 {
+						    	position: absolute;
+						    	left:250px;
+								width:250px;
+						    }
+						}
+					}
+
+
+					ul {
+						padding:0;
+						li {
+							border-bottom:2px solid $zblog-grey;
+							list-style: none;
+							min-height: 40px;
+
+							a {
+								padding:20px;
+								display: block;
+
+								&:hover {
+									color:#fff;
+									background:$zblog-grey;
+								}
+							}
+						}
+					}
+				
+
+				}
+			}
+		}
+
+		.zbar {
+			background: $zgreen;
+			height: 40px;
+			color:#fff;
+
+			.ztoggle {
+				padding-top:9px;
+			}
+
+			.login-block {
+
+				font-size: 20px;
+				padding-top: 5px;
+
+				img {
+					max-width:27px;
+					margin-right: -3px;
+				}
+			}
+
+			.search {
+				padding-left:20px;
+				img {
+					max-width: 28px;
+					padding-top: 5px;
+				}
+			}
+		}
+
+		.z-content-container {
+			position: relative;
+			overflow: hidden;
+
+
+			.zlogin {
+				transition: .3s ease all;
+			    -webkit-transition: .3s ease all;
+				position: absolute;
+				width:100%;
+				background:#fff;
+				color:$zblog-grey;
+				z-index:101;
+				font-family:'Museo500';
+				height: 265px;
+				-webkit-transform: translateY(-265px);
+				transform: translateY(-265px);
+
+				&.view {
+					-webkit-transform: translateY(0px);
+				    transform: translateY(0px);
+				}
+			}
+
+			.zsearch {
+				transition: .3s ease all;
+			    -webkit-transition: .3s ease all;
+				position: absolute;
+				width:100%;
+				background:#fff;
+				color:$zblog-grey;
+				z-index:101;
+				font-family:'Museo500';
+				height: 50px;
+				-webkit-transform: translateY(-50px);
+				transform: translateY(-50px);
+
+				&.view {
+					-webkit-transform: translateY(0px);
+			    }
+			}
+
+			.zrate {
+				background:$zblue;
+				text-align: center;
+				padding: 19px;
+				font-family: 'Museo500';
+				
+				&:hover {
+					background:$zblog-grey;
+				}
+
+				a {
+					color:#fff;
+					text-align: center;
+					font-size:20px;
+					padding:20px;
+					text-decoration: none;
+				}
+			}
+
+			.zblog-content {
+
+				@mixin flexbox() {
+				  display: -webkit-box;
+				  display: -moz-box;
+				  display: -ms-flexbox;
+				  display: -webkit-flex;
+				  display: flex;
+				}
+
+				@mixin flex($values) {
+				  -webkit-box-flex: $values;
+				  -moz-box-flex:  $values;
+				  -webkit-flex:  $values;
+				  -ms-flex:  $values;
+				  flex:  $values;
+				}
+
+				@mixin order($val) {
+				  -webkit-box-ordinal-group: $val;  
+				  -moz-box-ordinal-group: $val;     
+				  -ms-flex-order: $val;     
+				  -webkit-order: $val;  
+				  order: $val;
+				}
+
+				.comparison-title {
+					padding:10px;
+					border-bottom:2px solid #000;
+					background:#eeeeee url(arrowdown.png) no-repeat 96.7% center;
+
+
+					&.show-all {
+						display:none;
+						opacity:0;
+						height:1px;
+						background:#eeeeee;
+					}
+				}
+
+				.sticky-container {
+				  position: absolute;
+				  z-index:100;
+
+
+				  .flex-item {
+							background:green;
+							width:180px;
+							box-shadow:1px 1px 1px #000;
+							border-right: 2px solid;
+		
+							.stickit {
+								width:50%;
+								float: left;
+								padding:10px;
+								border-top:2px solid #fff;
+								border-right:2px solid #fff;
+								text-align:center;
+								background:#535353;
+								color:#fff;
+							}
+
+							.hideit {
+								width:50%;
+								float: left;
+								padding:10px;
+								background:#A2A2A2;
+								border-top:2px solid #fff;
+								text-align:center;
+							}
+		
+							.col-content {
+								padding:10px 20px;
+							}
+						}
+
+				}
+
+				.swipe-container {
+					position: relative;
+					overflow-x:scroll;
+
+						.flex-container {
+							width:1080px;
+							@include flexbox();
+							flex-direction: row;
+							flex-wrap: nowrap;
+							align-items: stretch;
+						}
+		
+						.flex-item {
+							border-right: 2px solid;
+							border-bottom:2px solid;
+							width:180px;
+		
+							.stickit {
+								width:50%;
+								float: left;
+								padding:10px;
+								background:#535353;
+								border-top:2px solid #fff;
+								border-right:2px solid #fff;
+								text-align:center;
+								color:#fff;
+							}
+
+							.hideit {
+								width:50%;
+								float: left;
+								padding:10px;
+								background:#A2A2A2;
+								border-top:2px solid #fff;
+								text-align:center;
+							}
+		
+							.col-content {
+								padding:10px 20px;
+							}
+						}
+				}
+
+
+
+				.zpost {
+					margin-bottom:20px;
+
+					h2 {
+						font-family: 'Museo700';
+						font-size:18px;
+						margin-bottom:3px;
+					}
+					span.date {
+						color:$zblog-grey;
+					}
+					p {
+						font-family: sans-serif;
+					}
+				}
+
+				.social-icons {
+					border-top: 1px solid $zblog-grey;
+					border-bottom: 1px solid $zblog-grey;
+					margin: 10px -15px;
+					padding: 20px 0;
+
+					img {
+						padding:10px 5px;
+					}
+				}
+			}
+
+			.zfooter {
+				color:#fff;
+				background:$zblog-grey;
+			}
+		}
+	}		
+}
+
+
+
+span.here {
+	background: #777;
+	display: block;
+	color: #fff;
+	font-size: 17px;
+
+	img {
+		max-width: 40px;
+		margin-right: 10px;
+		margin-left: 12px;
+	}
+}
+
+.row {
+	margin-left:0px;
+	margin-right:0px;
+}
+
+//Buttons
+a.zbtn {
+	background:$zgreen;
+	color: #fff;
+	font-family: 'Museo500';
+	padding: 5px 15px;
+	border-radius: 10px;
+	display:inline-block;
+
+	&.blue {
+		background-color: $zblue;
+		margin-top:10px;
+	}
+}
+
+a.backButton {
+	background:#424242;
+	color:#fff;
+	display: block;
+	padding:10px;
+
+	&:hover {
+		background:#888;
+		text-decoration: none;
+	}
+}
+
+.ui-loading .ui-loader { display: block; }
+.ui-loader { display: none; position: absolute; opacity: .85; z-index: 100; left: 50%; width: 200px; margin-left: -130px; margin-top: -35px; padding: 10px 30px; }
+
+@media (min-width: $screen-sm-min) { 
+	.zblog-header {
+		
+	}
+}
+
+
+
+//BootStrap Overrides
+
+.nav-tabs {
+	display:table;
+	text-align:justify;
+	border-bottom:none;
+
+	li {
+		display: table-cell;
+	    width: 33.3333333333333%;  /* (100 / numItems)% */
+	    text-align: center;
+	    white-space: nowrap;
+	}
+
+	&:after {
+		content: '';
+	    display: inline-block;
+	    width: 100%;
+	}
+
+	> li {
+		float:none;
+	}
+
+	> li > a {
+		margin-right:0;
+		background:#777777;
+		border-radius: 0;
+		border:0;
+		border-bottom:1px solid #7e7e7e;
+		color: #fff;
+		text-transform: uppercase;
+		font-family: 'MuseoSans500', sans-serif;
+
+		&:hover {
+			background:#000;
+		}
+	}
+}
+
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus {
+	color: #ababab;
+    background:none;
+	border: none;
+	cursor: default;
+	border-top:1px solid #7e7e7e;
+	border-right:1px solid #7e7e7e;
+	border-left:1px solid #7e7e7e;
+}
+
+h4, .h4 {
+font-size: 17px;
+}
