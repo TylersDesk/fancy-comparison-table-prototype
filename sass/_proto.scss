@@ -266,9 +266,10 @@
 
 				  .flex-item {
 							background:green;
-							width:180px;
+							width:161px;
 							box-shadow:1px 1px 1px #000;
 							border-right: 2px solid;
+							float:left;
 		
 							.stickit {
 								width:50%;
@@ -312,7 +313,7 @@
 						.flex-item {
 							border-right: 2px solid;
 							border-bottom:2px solid;
-							width:180px;
+							width:161px;
 		
 							.stickit {
 								width:50%;

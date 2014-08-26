@@ -25,7 +25,6 @@ var zproto = zproto || {};
         }
       });
 
-
       $('.nav-categories li a').on('click', function(e) {
         $(this).next('ul').toggleClass('visible');
       });
@@ -41,6 +40,15 @@ var zproto = zproto || {};
       }
     };
 
+  }());
+
+  zproto.heightFinder = (function(){
+
+    return {
+      init: function(){
+
+      }
+    };
   }());
 
   //Init Function
@@ -64,8 +72,32 @@ $(document).ready(function() {
 
   $('.stickit').on('click', function() {
     var elem = $(this).parent().clone();
+
+    elem.find('.stickit').html('Unstick').css('width','100%').addClass('removeMe');
+    elem.find('.hideit').remove();
+
+    console.log('Setting Height to ', $('.heightFinder').data('columnHeight'))
+    elem.css('height', $('.heightFinder').data('columnHeight'));
+
+
+
+    var myKids = $('.sticky-container').children().length;
+
+    if (myKids > 0) {
+      $('.sticky-container').css('width', (myKids + 1)*162);
+    }
+
     $('.sticky-container').append(elem);
+
+    // var theElem = $(this).parent();
+
+    // theElem.css('height', $('.heightFinder').data('columnHeight'));
+    // theElem.animate({
+    //       left:0
+    //     });
   });
+
+
 
   $('.hideit').on('click', function() {
 
@@ -94,6 +126,17 @@ $(document).ready(function() {
     updateHiddenProducts();
   });
 
+  $(document).on('click', '.removeMe', function(){
+    $(this).parent().remove();
+    var theWidth = parseInt($('.sticky-container').css('width'), 10);
+
+    if (theWidth != 0) {
+      $('.sticky-container').css('width', theWidth - 161 );
+    }
+
+    console.log($('.sticky-container').css('width'));
+  });
+
   $(document).on('click', '.showallproducts', function() {
     console.log($('.imHiding').length);
 
@@ -106,7 +149,7 @@ $(document).ready(function() {
       thisElem.css('display','block');
       thisElem.animate({
         opacity:1,
-        width:180,
+        width:161,
         height: oldHeight
       });
     });
@@ -129,6 +172,7 @@ var homeCarousel = $('.carousel');
 $('#home-carousel').on('swipeleft', function() {
   homeCarousel.carousel('next');
 });
+
 $('#home-carousel').on('swiperight', function() {
   homeCarousel.carousel('prev');
 });
@@ -173,3 +217,34 @@ $(document).on('click', '.search', function() {
 })();
 
 
+$.fn.widthMaker = function() {
+  var cellWidth = parseInt(this.children().eq(1).css('width'), 10),
+      cellNum = this.children().length;
+
+  this.css('width',  cellWidth*cellNum);
+
+  return this;
+
+}
+
+
+//HeightFinder Jquery Plugin
+$.fn.heightFinder = function() {
+
+  var directSiblings = this.children();
+  console.log('directSiblings: ', directSiblings);
+
+  var allHeight = directSiblings.map(function(){
+    return $(this).height();
+  }).get();
+
+  var height = Math.max.apply(null, allHeight);
+
+  this.data({"columnHeight": height});
+  this.attr('columnHeight', height);
+
+  return this;
+}
+
+$('.heightFinder').heightFinder();
+$('.heightFinder').widthMaker();
